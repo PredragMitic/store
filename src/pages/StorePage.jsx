@@ -138,12 +138,12 @@ export default function StorePage({
           borderBottom: `1px solid ${colors.border}`,
           padding: "1rem 2rem",
           display: "flex",
-          alignItems: "center",
+          flexDirection: "column",
           gap: 12,
-          flexWrap: "wrap",
         }}
       >
-        <div style={{ position: "relative", maxWidth: 460, flex: "1 1 200px" }}>
+        {/* Search Bar */}
+        <div style={{ position: "relative", width: "100%" }}>
           <span
             style={{
               position: "absolute",
@@ -173,6 +173,7 @@ export default function StorePage({
               fontFamily: "inherit",
               outline: "none",
               boxShadow: "0 12px 24px rgba(15, 56, 33, 0.08)",
+              boxSizing: "border-box",
             }}
           />
           {query && (
@@ -194,61 +195,73 @@ export default function StorePage({
             </button>
           )}
         </div>
+
+        {/* Filters and Sort */}
         <div
           style={{
             display: "flex",
             gap: 8,
             flexWrap: "wrap",
             alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          {CATEGORIES.map((c) => {
-            const isActive = cat === c;
-            const a = catChipActive[c];
-            return (
-              <button
-                key={c}
-                onClick={() => setCat(c)}
-                style={{
-                  fontSize: 11,
-                  padding: "5px 13px",
-                  borderRadius: 99.9,
-                  cursor: "pointer",
-                  fontFamily: "inherit",
-                  fontWeight: isActive ? 500 : 400,
-                  transition: "all 0.15s",
-                  background: isActive ? a.background : "#fff",
-                  color: isActive ? a.color : colors.text2,
-                  border: `1px solid ${isActive ? a.border : colors.border2}`,
-                }}
-              >
-                {locale.search.categories[c]}
-              </button>
-            );
-          })}
+          <div
+            style={{
+              display: "flex",
+              gap: 8,
+              flexWrap: "wrap",
+              alignItems: "center",
+            }}
+          >
+            {CATEGORIES.map((c) => {
+              const isActive = cat === c;
+              const a = catChipActive[c];
+              return (
+                <button
+                  key={c}
+                  onClick={() => setCat(c)}
+                  style={{
+                    fontSize: 11,
+                    padding: "5px 13px",
+                    borderRadius: 99.9,
+                    cursor: "pointer",
+                    fontFamily: "inherit",
+                    fontWeight: isActive ? 500 : 400,
+                    transition: "all 0.15s",
+                    background: isActive ? a.background : "#fff",
+                    color: isActive ? a.color : colors.text2,
+                    border: `1px solid ${isActive ? a.border : colors.border2}`,
+                  }}
+                >
+                  {locale.search.categories[c]}
+                </button>
+              );
+            })}
+          </div>
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            style={{
+              fontFamily: "inherit",
+              fontSize: 11,
+              padding: "7px 14px",
+              borderRadius: 99.9,
+              border: `1px solid ${colors.border}`,
+              background: colors.bg2,
+              color: colors.text2,
+              cursor: "pointer",
+              outline: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {Object.keys(locale.search.sortOptions).map((key) => (
+              <option key={key} value={key}>
+                {locale.search.sortOptions[key]}
+              </option>
+            ))}
+          </select>
         </div>
-        <select
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
-          style={{
-            fontFamily: "inherit",
-            fontSize: 11,
-            marginLeft: "auto",
-            padding: "7px 14px",
-            borderRadius: 99.9,
-            border: `1px solid ${colors.border}`,
-            background: colors.bg2,
-            color: colors.text2,
-            cursor: "pointer",
-            outline: "none",
-          }}
-        >
-          {Object.keys(locale.search.sortOptions).map((key) => (
-            <option key={key} value={key}>
-              {locale.search.sortOptions[key]}
-            </option>
-          ))}
-        </select>
       </div>
 
       {/* Results note */}
