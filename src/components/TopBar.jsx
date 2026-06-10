@@ -15,16 +15,18 @@ export function Topbar({
   return (
     <header
       style={{
-        background: colors.bg2,
+        background: "#1452AE",
         borderBottom: `1px solid ${colors.border}`,
+        boxShadow: "0 18px 45px rgba(20, 82, 174, 0.2)",
         padding: "0 2rem",
-        height: 58,
+        height: 64,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         position: "sticky",
         top: 0,
         zIndex: 100,
+        backdropFilter: "blur(16px)",
       }}
     >
       <div onClick={onLogoClick} style={{ cursor: "pointer" }}>
@@ -53,7 +55,7 @@ export function Topbar({
       </div>
       <nav style={{ display: "flex", gap: 24 }}>
         {locale.nav.map((item, i) => (
-          <a
+          <button
             key={item}
             onClick={
               i === 0
@@ -68,17 +70,21 @@ export function Topbar({
             }
             style={{
               fontSize: 12,
-              color:
-                i === 0 || i === 1 || i === 2 || i === 3
-                  ? colors.accent
-                  : colors.text2,
+              fontWeight: 500,
+              color: colors.text2,
               cursor: "pointer",
               letterSpacing: "0.03em",
               textDecoration: "none",
+              background: "transparent",
+              border: "none",
+              padding: 0,
+              transition: "color 0.2s, transform 0.2s",
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = colors.accent)}
+            onMouseLeave={(e) => (e.currentTarget.style.color = colors.text2)}
           >
             {item}
-          </a>
+          </button>
         ))}
       </nav>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>

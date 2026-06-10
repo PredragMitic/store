@@ -11,7 +11,7 @@ function CartItem({ product, onRemove, locale }) {
         gap: 16,
         padding: 16,
         background: "#fff",
-        borderRadius: 12,
+        borderRadius: 1.2,
         border: `1px solid ${colors.border}`,
       }}
     >
@@ -19,7 +19,7 @@ function CartItem({ product, onRemove, locale }) {
         style={{
           width: 80,
           height: 80,
-          borderRadius: 8,
+          borderRadius: 0.8,
           background: colors.bg3,
           display: "flex",
           alignItems: "center",
@@ -84,7 +84,7 @@ function CartSummary({ items, locale }) {
     <div
       style={{
         background: "#fff",
-        borderRadius: 12,
+        borderRadius: 1.2,
         border: `1px solid ${colors.border}`,
         padding: 20,
       }}
@@ -154,7 +154,7 @@ function CartSummary({ items, locale }) {
           background: colors.accent,
           color: "#fff",
           border: "none",
-          borderRadius: 8,
+          borderRadius: 0.8,
           cursor: "pointer",
           fontFamily: "inherit",
         }}
@@ -193,7 +193,7 @@ function EmptyCart({ onContinue, locale }) {
           background: colors.accent,
           color: "#fff",
           border: "none",
-          borderRadius: 999,
+          borderRadius: 99.9,
           cursor: "pointer",
           fontFamily: "inherit",
         }}

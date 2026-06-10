@@ -20,14 +20,17 @@ export function ProductCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: "#fff",
-        borderRadius: 16,
+        background: "#e9f0e9",
+        borderRadius: 2.4,
         border: `1px solid ${hovered ? colors.accent3 : colors.border}`,
         overflow: "hidden",
         cursor: "pointer",
-        transition: "transform 0.18s, box-shadow 0.18s, border-color 0.18s",
-        transform: hovered ? "translateY(-3px)" : "none",
-        boxShadow: hovered ? "0 6px 24px rgba(200,140,100,0.13)" : "none",
+        transition:
+          "transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease",
+        transform: hovered ? "translateY(-4px)" : "none",
+        boxShadow: hovered
+          ? "0 18px 40px rgba(15, 56, 33, 0.2)"
+          : "0 6px 20px rgba(15, 56, 33, 0.1)",
       }}
     >
       <div
@@ -52,10 +55,10 @@ export function ProductCard({
               fontSize: 9,
               fontWeight: 600,
               padding: "3px 9px",
-              borderRadius: 999,
+              borderRadius: 99.9,
               textTransform: "uppercase",
               background: colors.mint3,
-              color: "#1a7a60",
+              color: "#fff",
               border: `1px solid ${colors.mint2}`,
             }}
           >
@@ -71,10 +74,10 @@ export function ProductCard({
               fontSize: 9,
               fontWeight: 600,
               padding: "3px 9px",
-              borderRadius: 999,
+              borderRadius: 99.9,
               textTransform: "uppercase",
-              background: colors.rose3,
-              color: "#a03060",
+              background: colors.rose,
+              color: "#fff",
               border: `1px solid ${colors.rose2}`,
             }}
           >
@@ -93,7 +96,7 @@ export function ProductCard({
             right: 9,
             background: "rgba(255,255,255,0.9)",
             border: `1px solid ${colors.border}`,
-            borderRadius: 999,
+            borderRadius: 99.9,
             width: 28,
             height: 28,
             display: "flex",
@@ -107,14 +110,14 @@ export function ProductCard({
           {isWishlisted ? "♥" : "♡"}
         </button>
       </div>
-      <div style={{ padding: 13 }}>
+      <div style={{ padding: 18 }}>
         <div
           style={{
-            fontSize: 10,
+            fontSize: 11,
             color: colors.text3,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
-            marginBottom: 3,
+            marginBottom: 6,
           }}
         >
           {locale.search.categories[product.cat]}
@@ -164,16 +167,17 @@ export function ProductCard({
               onAdd(product.id);
             }}
             style={{
-              fontSize: 11,
-              fontWeight: 500,
-              padding: "6px 12px",
-              borderRadius: 999,
+              fontSize: 12,
+              fontWeight: 600,
+              padding: "9px 16px",
+              borderRadius: 99.9,
               cursor: "pointer",
               fontFamily: "inherit",
-              transition: "all 0.15s",
-              background: isAdded ? colors.mint3 : "#fff",
-              color: isAdded ? "#1a7a60" : colors.text2,
-              border: `1px solid ${isAdded ? colors.mint2 : colors.border2}`,
+              transition: "all 0.18s ease",
+              background: isAdded ? colors.mint : "#f7f2ee",
+              color: isAdded ? "#ffffff" : colors.text,
+              border: `1px solid ${isAdded ? colors.mint : colors.border2}`,
+              minWidth: 110,
             }}
           >
             {isAdded ? locale.product.addedButton : locale.product.addButton}

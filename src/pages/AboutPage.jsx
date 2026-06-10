@@ -97,7 +97,7 @@ export default function AboutPage({ onNavigate, locale }) {
                 key={i}
                 style={{
                   background: "#fff",
-                  borderRadius: 12,
+                  borderRadius: 1.2,
                   padding: 20,
                   border: `1px solid ${colors.border}`,
                 }}
@@ -134,7 +134,7 @@ export default function AboutPage({ onNavigate, locale }) {
         <section
           style={{
             background: colors.mint3,
-            borderRadius: 16,
+            borderRadius: 1.6,
             padding: "2rem",
             textAlign: "center",
             border: `1px solid ${colors.mint2}`,
@@ -146,7 +146,7 @@ export default function AboutPage({ onNavigate, locale }) {
               fontSize: 24,
               fontWeight: 500,
               marginBottom: 8,
-              color: "#1a6a55",
+              color: colors.accent,
             }}
           >
             {locale.about.contactTitle}
@@ -154,7 +154,7 @@ export default function AboutPage({ onNavigate, locale }) {
           <p
             style={{
               fontSize: 14,
-              color: "#2a7a68",
+              color: colors.text2,
               marginBottom: 16,
             }}
           >
@@ -166,10 +166,10 @@ export default function AboutPage({ onNavigate, locale }) {
               fontSize: 13,
               fontWeight: 500,
               padding: "10px 24px",
-              borderRadius: 999,
+              borderRadius: 99.9,
               cursor: "pointer",
               fontFamily: "inherit",
-              background: "#1a6a55",
+              background: colors.accent,
               color: "#fff",
               border: "none",
             }}

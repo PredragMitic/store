@@ -14,9 +14,9 @@ export function Highlight({ text, query }) {
           <mark
             key={i}
             style={{
-              background: "rgba(240,170,120,0.35)",
-              color: colors.accent,
-              borderRadius: 3,
+              background: "rgba(235, 205, 119, 0.3)",
+              color: colors.text,
+              borderRadius: 0.3,
               padding: "0 2px",
             }}
           >

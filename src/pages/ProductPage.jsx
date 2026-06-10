@@ -112,7 +112,7 @@ export default function ProductPage({
         <div
           style={{
             padding: "2rem",
-            borderRadius: 20,
+            borderRadius: 2,
             background: colors.bg2,
             color: colors.text3,
             maxWidth: 620,
@@ -160,7 +160,7 @@ export default function ProductPage({
         <div
           style={{
             background: catCardBg[product.cat] || colors.bg3,
-            borderRadius: 20,
+            borderRadius: 2,
             minHeight: 360,
             display: "flex",
             alignItems: "center",
@@ -223,7 +223,7 @@ export default function ProductPage({
             <span
               style={{
                 fontSize: 12,
-                color: product.inStock ? "#1a7a60" : colors.rose2,
+                color: product.inStock ? colors.mint : colors.rose,
               }}
             >
               {product.inStock
@@ -280,7 +280,7 @@ export default function ProductPage({
                 gap: 8,
                 background: "#fff",
                 border: `1px solid ${colors.border2}`,
-                borderRadius: 999,
+                borderRadius: 99.9,
                 padding: "6px 10px",
               }}
             >
@@ -349,7 +349,9 @@ export default function ProductPage({
                 fontSize: 13,
               }}
             >
-              {wishlist.has(productId) ? "♥ Saved" : locale.productPage.wishlist}
+              {wishlist.has(productId)
+                ? "♥ Saved"
+                : locale.productPage.wishlist}
             </button>
           </div>
 

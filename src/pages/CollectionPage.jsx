@@ -21,13 +21,13 @@ function CollectionProductCard({
       onMouseLeave={() => setHovered(false)}
       style={{
         background: "#fff",
-        borderRadius: 16,
+        borderRadius: 1.6,
         border: `1px solid ${hovered ? colors.accent3 : colors.border}`,
         overflow: "hidden",
         cursor: "pointer",
         transition: "transform 0.18s, box-shadow 0.18s, border-color 0.18s",
         transform: hovered ? "translateY(-3px)" : "none",
-        boxShadow: hovered ? "0 6px 24px rgba(200,140,100,0.13)" : "none",
+        boxShadow: hovered ? "0 6px 24px rgba(46, 109, 73, 0.14)" : "none",
       }}
     >
       <div
@@ -52,10 +52,10 @@ function CollectionProductCard({
               fontSize: 9,
               fontWeight: 600,
               padding: "3px 9px",
-              borderRadius: 999,
+              borderRadius: 99.9,
               textTransform: "uppercase",
               background: colors.mint3,
-              color: "#1a7a60",
+              color: "#fff",
               border: `1px solid ${colors.mint2}`,
             }}
           >
@@ -71,10 +71,10 @@ function CollectionProductCard({
               fontSize: 9,
               fontWeight: 600,
               padding: "3px 9px",
-              borderRadius: 999,
+              borderRadius: 99.9,
               textTransform: "uppercase",
-              background: colors.rose3,
-              color: "#a03060",
+              background: colors.rose,
+              color: "#fff",
               border: `1px solid ${colors.rose2}`,
             }}
           >
@@ -93,7 +93,7 @@ function CollectionProductCard({
             right: 9,
             background: "rgba(255,255,255,0.9)",
             border: `1px solid ${colors.border}`,
-            borderRadius: 999,
+            borderRadius: 99.9,
             width: 28,
             height: 28,
             display: "flex",
@@ -167,12 +167,12 @@ function CollectionProductCard({
               fontSize: 11,
               fontWeight: 500,
               padding: "6px 12px",
-              borderRadius: 999,
+              borderRadius: 99.9,
               cursor: "pointer",
               fontFamily: "inherit",
               transition: "all 0.15s",
               background: isAdded ? colors.mint3 : "#fff",
-              color: isAdded ? "#1a7a60" : colors.text2,
+              color: isAdded ? "#fff" : colors.text2,
               border: `1px solid ${isAdded ? colors.mint2 : colors.border2}`,
             }}
           >

@@ -5,7 +5,15 @@ import { ProductCard } from "../components/ProductCard";
 
 const CATEGORIES = ["all", "home", "kitchen", "lifestyle", "garden"];
 
-export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist, onRemoveFromWishlist, onNavigate, locale }) {
+export default function StorePage({
+  cart,
+  wishlist,
+  onAddToCart,
+  onAddToWishlist,
+  onRemoveFromWishlist,
+  onNavigate,
+  locale,
+}) {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState("all");
   const [sort, setSort] = useState("default");
@@ -60,13 +68,15 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
       {/* Hero */}
       <div
         style={{
-          background: `linear-gradient(120deg, ${colors.lavender3} 0%, #d8edf9 40%, ${colors.mint3} 100%)`,
+          background: "#fff",
           borderBottom: `1px solid ${colors.border}`,
-          padding: "2.5rem 2rem",
+          padding: "3.25rem 2rem 2rem",
           display: "grid",
           gridTemplateColumns: "1fr auto",
           gap: "2rem",
           alignItems: "flex-end",
+          borderRadius: "0 0 4.2px 4.2px",
+          overflow: "hidden",
         }}
       >
         <div>
@@ -76,7 +86,7 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
               fontSize: 40,
               fontWeight: 500,
               lineHeight: 1.15,
-              color: colors.text,
+              color: colors.accent,
               marginBottom: 10,
             }}
           >
@@ -85,7 +95,7 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
           <p
             style={{
               fontSize: 13,
-              color: colors.text2,
+              color: colors.text3,
               lineHeight: 1.7,
               maxWidth: 380,
             }}
@@ -106,12 +116,13 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
               key={label}
               style={{
                 fontSize: 11,
-                padding: "5px 14px",
-                borderRadius: 999,
-                fontWeight: 500,
-                background: colors.mint3,
-                color: "#2a7a68",
-                border: `1px solid ${colors.mint2}`,
+                padding: "7px 18px",
+                borderRadius: 99.9,
+                fontWeight: 600,
+                background: colors.accent2,
+                color: "#fff",
+                border: `1px solid ${colors.accent}`,
+                boxShadow: "0 10px 24px rgba(15, 56, 33, 0.16)",
               }}
             >
               {label}
@@ -123,9 +134,9 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
       {/* Search + Filters */}
       <div
         style={{
-          background: colors.bg2,
+          background: colors.bg3,
           borderBottom: `1px solid ${colors.border}`,
-          padding: "0.85rem 2rem",
+          padding: "1rem 2rem",
           display: "flex",
           alignItems: "center",
           gap: 12,
@@ -152,15 +163,16 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
             onChange={(e) => setQuery(e.target.value)}
             placeholder={locale.search.placeholder}
             style={{
-              width: "50%",
-              background: "#fff",
-              border: `1px solid ${colors.border2}`,
-              borderRadius: 999,
-              padding: "9px 36px 9px 38px",
-              fontSize: 13,
+              width: "100%",
+              background: "#FFFFFF",
+              border: `1px solid ${colors.border}`,
+              borderRadius: 99.9,
+              padding: "12px 36px 12px 42px",
+              fontSize: 14,
               color: colors.text,
               fontFamily: "inherit",
               outline: "none",
+              boxShadow: "0 12px 24px rgba(15, 56, 33, 0.08)",
             }}
           />
           {query && (
@@ -185,7 +197,7 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
         <div
           style={{
             display: "flex",
-            gap: 7,
+            gap: 8,
             flexWrap: "wrap",
             alignItems: "center",
           }}
@@ -200,7 +212,7 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
                 style={{
                   fontSize: 11,
                   padding: "5px 13px",
-                  borderRadius: 999,
+                  borderRadius: 99.9,
                   cursor: "pointer",
                   fontFamily: "inherit",
                   fontWeight: isActive ? 500 : 400,
@@ -222,10 +234,10 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
             fontFamily: "inherit",
             fontSize: 11,
             marginLeft: "auto",
-            padding: "6px 12px",
-            borderRadius: 999,
-            border: `1px solid ${colors.border2}`,
-            background: "#fff",
+            padding: "7px 14px",
+            borderRadius: 99.9,
+            border: `1px solid ${colors.border}`,
+            background: colors.bg2,
             color: colors.text2,
             cursor: "pointer",
             outline: "none",
@@ -329,11 +341,13 @@ export default function StorePage({ cart, wishlist, onAddToCart, onAddToWishlist
         style={{
           background: colors.bg2,
           borderTop: `1px solid ${colors.border}`,
-          padding: "1.25rem 2rem",
+          padding: "1.5rem 2rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          gap: 16,
           marginTop: "0.5rem",
+          borderRadius: "24px",
         }}
       >
         <span style={{ fontSize: 12, color: colors.text3 }}>
