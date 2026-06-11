@@ -110,7 +110,6 @@ export function Topbar({
             style={{
               display: "flex",
               gap: 6,
-              flexWrap: "wrap",
               alignItems: "center",
               marginLeft: 12,
             }}
