@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { colors } from "../data";
 
 export function Topbar({
@@ -12,132 +13,206 @@ export function Topbar({
   onLanguageChange,
   availableLangs,
 }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavClick = (i) => {
+    setMenuOpen(false);
+    if (i === 0) return onLogoClick();
+    if (i === 1) return onCollectionsClick();
+    if (i === 2) return onAboutClick();
+    if (i === 3) return onContactClick();
+  };
+
   return (
     <header
       style={{
         background: "#1452AE",
         borderBottom: `1px solid ${colors.border}`,
         boxShadow: "0 18px 45px rgba(20, 82, 174, 0.2)",
-        padding: "0 2rem",
-        height: 64,
+        padding: "0 1rem",
+        minHeight: 56,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        position: "sticky",
+        flexWrap: "wrap",
+        gap: 10,
+        position: "relative",
         top: 0,
         zIndex: 100,
         backdropFilter: "blur(16px)",
       }}
     >
-      <div onClick={onLogoClick} style={{ cursor: "pointer" }}>
-        <div
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          minWidth: 0,
+          flex: "1 1 auto",
+        }}
+      >
+        <button
+          type="button"
+          className="topbar-menu-button"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: 23,
-            fontWeight: 600,
-            letterSpacing: "0.06em",
-            color: colors.accent,
-            lineHeight: 1.1,
+            border: "none",
+            background: "transparent",
+            color: "#fff",
+            cursor: "pointer",
+            fontSize: 24,
+            padding: "8px",
           }}
         >
-          PREMI
-        </div>
-        <div
+          ☰
+        </button>
+        <nav
+          className={`topbar-nav${menuOpen ? " open" : ""}`}
           style={{
-            fontWeight: 300,
-            color: colors.text3,
-            fontSize: 11,
-            letterSpacing: "0.2em",
+            gap: 12,
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            flex: "1 1 auto",
+            minWidth: 0,
           }}
         >
-          STORE
-        </div>
-      </div>
-      <nav style={{ display: "flex", gap: 24 }}>
-        {locale.nav.map((item, i) => (
-          <button
-            key={item}
-            onClick={
-              i === 0
-                ? onLogoClick
-                : i === 1
-                  ? onCollectionsClick
-                  : i === 2
-                    ? onAboutClick
-                    : i === 3
-                      ? onContactClick
-                      : undefined
-            }
-            style={{
-              fontSize: 12,
-              fontWeight: 500,
-              color: colors.text2,
-              cursor: "pointer",
-              letterSpacing: "0.03em",
-              textDecoration: "none",
-              background: "transparent",
-              border: "none",
-              padding: 0,
-              transition: "color 0.2s, transform 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = colors.accent)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = colors.text2)}
-          >
-            {item}
-          </button>
-        ))}
-      </nav>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <div style={{ display: "flex", gap: 6 }}>
-          {availableLangs.map((lang) => (
+          {locale.nav.map((item, i) => (
             <button
-              key={lang}
-              onClick={() => onLanguageChange(lang)}
+              key={item}
+              onClick={() => handleNavClick(i)}
               style={{
-                fontSize: 10,
-                fontWeight: currentLang === lang ? 600 : 400,
-                padding: "4px 10px",
-                borderRadius: 999,
-                border: `1px solid ${currentLang === lang ? colors.accent : colors.border2}`,
-                background: currentLang === lang ? colors.accent : "#fff",
-                color: currentLang === lang ? "#fff" : colors.text2,
+                fontSize: 12,
+                fontWeight: 500,
+                color: "#fff",
                 cursor: "pointer",
-                fontFamily: "inherit",
+                letterSpacing: "0.03em",
+                textDecoration: "none",
+                background: "transparent",
+                border: "none",
+                padding: 0,
+                transition: "color 0.2s, transform 0.2s",
               }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = colors.accent3)
+              }
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#fff")}
             >
-              {lang}
+              {item}
             </button>
           ))}
-        </div>
+          <div
+            className="topbar-lang-group"
+            style={{
+              display: "flex",
+              gap: 6,
+              flexWrap: "wrap",
+              alignItems: "center",
+              marginLeft: 12,
+            }}
+          >
+            {availableLangs.map((lang) => (
+              <button
+                key={lang}
+                onClick={() => {
+                  setMenuOpen(false);
+                  onLanguageChange(lang);
+                }}
+                style={{
+                  fontSize: 10,
+                  fontWeight: currentLang === lang ? 700 : 500,
+                  padding: "4px 8px",
+                  borderRadius: 999,
+                  border:
+                    currentLang === lang
+                      ? `1px solid ${colors.accent}`
+                      : "1px solid rgba(255,255,255,0.35)",
+                  background:
+                    currentLang === lang ? "#fff" : "rgba(255,255,255,0.18)",
+                  color: currentLang === lang ? colors.accent : "#fff",
+                  cursor: "pointer",
+                  fontFamily: "inherit",
+                }}
+              >
+                {lang}
+              </button>
+            ))}
+          </div>
+        </nav>
+      </div>
+      <div
+        className="topbar-logo"
+        onClick={onLogoClick}
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          minWidth: 0,
+        }}
+      >
+        <img
+          src="/domio.png"
+          alt="Premi Store logo"
+          style={{
+            height: 35,
+            width: "auto",
+            display: "block",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-end",
+          flex: "1 1 auto",
+          minWidth: 0,
+          gap: 10,
+        }}
+      >
         <button
           onClick={onCartClick}
+          aria-label={locale.topbar.cartButton}
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 7,
+            justifyContent: "center",
             background: colors.accent,
             color: "#fff",
             border: "none",
-            padding: "7px 16px",
+            padding: "10px 12px",
             borderRadius: 20,
-            fontSize: 12,
-            fontWeight: 500,
+            fontSize: 14,
+            fontWeight: 600,
             cursor: "pointer",
+            minWidth: 44,
+            minHeight: 44,
           }}
         >
-          {locale.topbar.cartButton}
+          <span style={{ fontSize: 18, lineHeight: 1, paddingRight: 6 }}>
+            🛒
+          </span>
           <span
             style={{
               background: "#fff",
               color: colors.accent,
               borderRadius: "50%",
-              width: 17,
-              height: 17,
+              width: 20,
+              height: 20,
               fontSize: 10,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
             {cartCount}

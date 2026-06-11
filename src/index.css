@@ -115,6 +115,59 @@ p {
   margin: 0;
 }
 
+.topbar-menu-button {
+  display: none;
+}
+
+.topbar-nav {
+  display: flex;
+  transition:
+    max-height 0.25s ease,
+    opacity 0.25s ease;
+}
+
+@media (max-width: 720px) {
+  .topbar-menu-button {
+    display: inline-flex;
+  }
+
+  .topbar-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 40%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem 1rem;
+    margin: 0;
+    background: #1452ae;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    z-index: 99;
+  }
+
+  .topbar-nav.open {
+    display: flex;
+  }
+
+  .topbar-nav button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .topbar-lang-group {
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 0 !important;
+  }
+
+  .topbar-lang-group button {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
 code,
 .counter {
   font-family: var(--mono);
