@@ -26,9 +26,9 @@ export function Topbar({
   return (
     <header
       style={{
-        background: "#1452AE",
+        background: "var(--accent)",
         borderBottom: `1px solid ${colors.border}`,
-        boxShadow: "0 18px 45px rgba(20, 82, 174, 0.2)",
+        boxShadow: "0 18px 45px var(--accent-border)",
         padding: "0 1rem",
         minHeight: 56,
         display: "flex",

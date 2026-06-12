@@ -12,11 +12,7 @@ const locales = {
       title: "Premium goods, made with care.",
       description:
         "Carefully selected physical products built to last. No fuss — just quality you can feel.",
-      highlights: [
-        "Free shipping over $75",
-        "30-day returns",
-        "Sustainably sourced",
-      ],
+      highlights: ["Free shipping over $75", "30-day returns"],
     },
     search: {
       placeholder: "Search products…",
@@ -160,7 +156,6 @@ const locales = {
       highlights: [
         "Besplatna isporuka preko $75",
         "Povraćaj u roku od 30 dana",
-        "Održivo odabrano",
       ],
     },
     search: {

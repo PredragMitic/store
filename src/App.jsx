@@ -14,7 +14,7 @@ export default function App() {
   const [productId, setProductId] = useState(null);
   const [cart, setCart] = useState(new Set());
   const [wishlist, setWishlist] = useState(new Set());
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState("sr");
   const locale = locales[lang];
 
   const navigate = (target, id = null) => {
@@ -54,7 +54,7 @@ export default function App() {
   return (
     <>
       <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet"
       />
       <Topbar

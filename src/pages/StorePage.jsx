@@ -67,6 +67,7 @@ export default function StorePage({
     >
       {/* Hero */}
       <div
+        className="hero-section"
         style={{
           background: "#fff",
           borderBottom: `1px solid ${colors.border}`,
@@ -79,10 +80,10 @@ export default function StorePage({
           overflow: "hidden",
         }}
       >
-        <div>
+        <div className="hero-left">
           <h1
+            className="hero-title"
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
               fontSize: 40,
               fontWeight: 500,
               lineHeight: 1.15,
@@ -104,9 +105,9 @@ export default function StorePage({
           </p>
         </div>
         <div
+          className="hero-right"
           style={{
             display: "flex",
-            flexDirection: "column",
             gap: 8,
             alignItems: "flex-end",
           }}
@@ -115,14 +116,14 @@ export default function StorePage({
             <span
               key={label}
               style={{
-                fontSize: 11,
-                padding: "7px 18px",
-                borderRadius: 99.9,
-                fontWeight: 600,
-                background: colors.accent2,
-                color: "#fff",
-                border: `1px solid ${colors.accent}`,
-                boxShadow: "0 10px 24px rgba(15, 56, 33, 0.16)",
+                fontSize: 9,
+                padding: "4px 10px",
+                borderRadius: 18,
+                fontWeight: 500,
+                background: "rgba(20, 82, 174, 0.05)",
+                color: colors.text3,
+                border: "1px solid rgba(20, 82, 174, 0.12)",
+                boxShadow: "0 2px 8px rgba(20, 82, 174, 0.05)",
               }}
             >
               {label}
